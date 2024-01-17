@@ -3,25 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  background: rgb(53, 3, 46);
+  background: radial-gradient(
+    circle,
+    rgba(53, 3, 46, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.choice-button {
+  @apply flex h-24 w-24 select-none items-center justify-center break-all rounded-full  border-4 border-purple-heart-700 bg-purple-heart-950 text-center;
 }
