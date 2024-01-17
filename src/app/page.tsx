@@ -23,27 +23,21 @@ export default function Home() {
   };
 
   return (
-    <section className="flex w-[30rem] flex-col items-center gap-14">
+    <>
       <Header score={score} />
       {start && <Choice handleChoice={handleChoice} />}
       {!waitingForResult && playAgain && <Choice handleChoice={handleChoice} />}
-      {!start && !playAgain && waitingForResult && (
+      {!start && !playAgain && (
         <WaitingResult
           userChoice={userChoice}
           result={result}
           computerChoice={computerChoice}
         />
       )}
-      {!start && !playAgain && !waitingForResult && (
-        <WaitingResult
-          userChoice={userChoice}
-          result={result}
-          computerChoice={computerChoice}
-        />
-      )}
+
       {!waitingForResult && !playAgain && !start && (
         <PlayAgain handlePlayAgain={handlePlayAgain} />
       )}
-    </section>
+    </>
   );
 }

@@ -25,9 +25,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} flex justify-center`}>
         <GameProvider>
-          <main className=" flex min-h-screen justify-center px-2 py-7 uppercase text-white">
+          <main className=" flex min-h-screen w-[30rem] flex-col items-center gap-14 px-2 py-7 uppercase text-white">
             {children}
           </main>
         </GameProvider>
