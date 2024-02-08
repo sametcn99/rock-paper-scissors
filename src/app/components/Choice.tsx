@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useGame } from "../context";
 
 const container = {
   hidden: { opacity: 1, scale: 0 },
@@ -22,7 +24,8 @@ const item = {
   },
 };
 
-export default function Choice({ handleChoice }: any) {
+export default function Choice() {
+  const { playGame, start, waitingForResult, playAgain } = useGame();
   return (
     <motion.div
       className="flex w-full flex-row flex-wrap items-center justify-center gap-4 "
@@ -32,21 +35,21 @@ export default function Choice({ handleChoice }: any) {
     >
       <motion.button
         variants={item}
-        onClick={() => handleChoice("Rock")}
+        onClick={() => playGame("Rock")}
         className="choice-button"
       >
         <Image src="/rock.png" alt="Rock" width={50} height={50} />
       </motion.button>
       <motion.button
         variants={item}
-        onClick={() => handleChoice("Paper")}
+        onClick={() => playGame("Paper")}
         className="choice-button"
       >
         <Image src="/paper.png" alt="Paper" width={50} height={50} />
       </motion.button>
       <motion.button
         variants={item}
-        onClick={() => handleChoice("Scissors")}
+        onClick={() => playGame("Scissors")}
         className="choice-button"
       >
         <Image src="/scissors.png" alt="Scissors" width={50} height={50} />

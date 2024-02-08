@@ -6,38 +6,14 @@ import WaitingResult from "./components/WaitingResult";
 import { useGame } from "./context";
 
 export default function Home() {
-  const {
-    score,
-    userChoice,
-    computerChoice,
-    result,
-    playGame,
-    waitingForResult,
-    handlePlayAgain,
-    playAgain,
-    start,
-  } = useGame();
-
-  const handleChoice = (choice: string) => {
-    playGame(choice);
-  };
-
+  const { waitingForResult, playAgain, start } = useGame();
   return (
     <>
-      <Header score={score} />
-      {start && <Choice handleChoice={handleChoice} />}
-      {!waitingForResult && playAgain && <Choice handleChoice={handleChoice} />}
-      {!start && !playAgain && (
-        <WaitingResult
-          userChoice={userChoice}
-          result={result}
-          computerChoice={computerChoice}
-        />
-      )}
-
-      {!waitingForResult && !playAgain && !start && (
-        <PlayAgain handlePlayAgain={handlePlayAgain} />
-      )}
+      <Header />
+      {start && <Choice />}
+      {!waitingForResult && playAgain && <Choice />}
+      <WaitingResult />
+      <PlayAgain />
     </>
   );
 }
