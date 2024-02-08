@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { GameProvider } from "./context";
 import React from "react";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
         <GameProvider>
           <main className="flex min-h-screen w-[30rem] flex-col items-center gap-14 px-2 py-7 uppercase text-white">
             {children}
+            <Footer />
           </main>
         </GameProvider>
       </body>
